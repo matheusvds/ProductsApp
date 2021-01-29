@@ -21,6 +21,7 @@
 		C6E4FA4E25C45F6E00106D69 /* GetProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA4D25C45F6E00106D69 /* GetProductsRequest.swift */; };
 		C6E4FA5325C45F9800106D69 /* GetProductsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA5225C45F9800106D69 /* GetProductsRequestTests.swift */; };
 		C6E4FA5A25C460CD00106D69 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA5925C460CD00106D69 /* DataExtensions.swift */; };
+		C6E4FA6625C4776100106D69 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA6525C4776100106D69 /* DomainError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		C6E4FA4D25C45F6E00106D69 /* GetProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsRequest.swift; sourceTree = "<group>"; };
 		C6E4FA5225C45F9800106D69 /* GetProductsRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsRequestTests.swift; sourceTree = "<group>"; };
 		C6E4FA5925C460CD00106D69 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		C6E4FA6525C4776100106D69 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		C6E4F9E925C451D300106D69 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				C6E4FA6425C4775900106D69 /* Error */,
 				C6E4F9F925C4551000106D69 /* Models */,
 				C6E4F9F825C4550400106D69 /* UseCases */,
 				C6E4F9EB25C451D300106D69 /* Info.plist */,
@@ -218,6 +221,14 @@
 				C6E4FA5925C460CD00106D69 /* DataExtensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C6E4FA6425C4775900106D69 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				C6E4FA6525C4776100106D69 /* DomainError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E4F9F325C4523A00106D69 /* GetProducts.swift in Sources */,
+				C6E4FA6625C4776100106D69 /* DomainError.swift in Sources */,
 				C6E4F9F625C452E300106D69 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
