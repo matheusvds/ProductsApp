@@ -12,6 +12,10 @@ class URLSessionAdapterTests: XCTestCase {
         }
     }
 
+    func test_client_should_complete_with_error_when_request_completes_with_error() {
+        expect(result: .failure(.noConnection), when: (data: nil, response: nil, error: makeError()))
+    }
+
 }
 
 extension URLSessionAdapterTests {
@@ -29,8 +33,26 @@ extension URLSessionAdapterTests {
         let exp = expectation(description: "wait")
         sut.send(from: request) { _ in exp.fulfill() }
         var request: URLRequest?
-        URLRequest.Observer.observe { request = $0 }
+        URLProtocolStub.Observer.observe { request = $0 }
         wait(for: [exp], timeout: 1.0)
         action(request!)
+    }
+    
+    func expect(result expectedResult: Result<Data?, HttpError>, when stub: (data: Data?, response: HTTPURLResponse?, error: Error?), file: StaticString = #file, line: UInt = #line) {
+        let sut = makeSut()
+        URLProtocolStub.simulate(data: stub.data, response: stub.response, error: stub.error)
+        let exp = expectation(description: "wait")
+        sut.send(from: makeDummyRequest()) { receivedResult in
+            switch (expectedResult, receivedResult) {
+            case (.failure(let expectedError), .failure(let receivedError)):
+                XCTAssertEqual(expectedError, receivedError, file: file, line: line)
+            case (.success(let expectedData), .success(let receivedData)):
+                XCTAssertEqual(expectedData, receivedData, file: file, line: line)
+            default: XCTFail("expecting \(expectedResult) got \(receivedResult)", file: file, line: line)
+            }
+            exp.fulfill()
+        }
+        
+        wait(for: [exp], timeout: 1.0)
     }
 }

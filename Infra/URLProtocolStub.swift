@@ -20,7 +20,7 @@ class URLProtocolStub: URLProtocol {
     }
     
     override func startLoading() {
-        URLRequest.Observer.emit?(request)
+        URLProtocolStub.Observer.emit?(request)
         
         if let data = URLProtocolStub.data {
             client?.urlProtocol(self, didLoad: data)

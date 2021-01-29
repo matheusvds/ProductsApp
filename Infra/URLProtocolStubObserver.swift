@@ -1,10 +1,10 @@
 import Foundation
 
-extension URLRequest {
+extension URLProtocolStub {
     class Observer {
         static var emit: ((URLRequest) -> Void)?
         static func observe(completion: @escaping (URLRequest) -> Void) {
-            URLRequest.Observer.emit = completion
+            URLProtocolStub.Observer.emit = completion
         }
     }
 }
