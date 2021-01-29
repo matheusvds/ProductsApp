@@ -21,6 +21,7 @@
 		C6E4FA4E25C45F6E00106D69 /* GetProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA4D25C45F6E00106D69 /* GetProductsRequest.swift */; };
 		C6E4FA5325C45F9800106D69 /* GetProductsRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA5225C45F9800106D69 /* GetProductsRequestTests.swift */; };
 		C6E4FA5A25C460CD00106D69 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA5925C460CD00106D69 /* DataExtensions.swift */; };
+		C6E4FA5F25C4755400106D69 /* HttpClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA5E25C4755400106D69 /* HttpClientSpy.swift */; };
 		C6E4FA6625C4776100106D69 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA6525C4776100106D69 /* DomainError.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		C6E4FA4D25C45F6E00106D69 /* GetProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsRequest.swift; sourceTree = "<group>"; };
 		C6E4FA5225C45F9800106D69 /* GetProductsRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsRequestTests.swift; sourceTree = "<group>"; };
 		C6E4FA5925C460CD00106D69 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		C6E4FA5E25C4755400106D69 /* HttpClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientSpy.swift; sourceTree = "<group>"; };
 		C6E4FA6525C4776100106D69 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C6E4FA5125C45F7900106D69 /* ProductsAPI */,
+				C6E4FA5D25C4753D00106D69 /* Http */,
 				C6E4FA1125C4560900106D69 /* RemoteGetProductsTests.swift */,
 				C6E4FA1325C4560900106D69 /* Info.plist */,
 			);
@@ -221,6 +224,14 @@
 				C6E4FA5925C460CD00106D69 /* DataExtensions.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C6E4FA5D25C4753D00106D69 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				C6E4FA5E25C4755400106D69 /* HttpClientSpy.swift */,
+			);
+			path = Http;
 			sourceTree = "<group>";
 		};
 		C6E4FA6425C4775900106D69 /* Error */ = {
@@ -403,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6E4FA5325C45F9800106D69 /* GetProductsRequestTests.swift in Sources */,
+				C6E4FA5F25C4755400106D69 /* HttpClientSpy.swift in Sources */,
 				C6E4FA1225C4560900106D69 /* RemoteGetProductsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
