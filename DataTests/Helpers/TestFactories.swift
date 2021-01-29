@@ -9,3 +9,7 @@ func makeProducts() -> ProductList {
 func makeInvalidData() -> Data {
     return Data("invalid data".utf8)
 }
+
+func makeValidData() -> Data {
+    return Data("{\"property\":\"value\"}".utf8)
+}

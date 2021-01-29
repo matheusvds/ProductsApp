@@ -32,6 +32,47 @@ class RemoteGetProductsTests: XCTestCase {
         })
     }
     
+    func test_get_products_should_complete_with_error_when_client_completes_with_not_decodable_valid_data() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withData: makeValidData())
+        })
+    }
+    
+    func test_get_products_should_complete_with_error_when_client_completes_with_unexpected_error() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withError: .badRequest)
+        })
+    }
+    
+    func test_get_products_should_complete_with_error_when_client_completes_with_forbidden_error() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withError: .forbidden)
+        })
+    }
+    
+    func test_get_products_should_complete_with_error_when_client_completes_with_no_connection_error() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withError: .noConnection)
+        })
+    }
+    
+    func test_get_products_should_complete_with_error_when_client_completes_with_server_error() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withError: .serverError)
+        })
+    }
+    
+    func test_get_products_should_complete_with_error_when_client_completes_with_unauthorized_error() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withError: .unauthorized)
+        })
+    }
 }
 
 extension RemoteGetProductsTests {
