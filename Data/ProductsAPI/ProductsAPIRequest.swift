@@ -17,7 +17,7 @@ public extension ProductsAPIRequest {
     }
     
     private var path: String {
-        return "/\(resource.rawValue)"
+        return resource.rawValue
     }
     
     private var serviceURL: URL {
