@@ -8,13 +8,13 @@ final class RemoteGetProducts: GetProducts {
         self.httpClient = httpClient
     }
     
-    func get(completion: @escaping (Result<Products, DomainError>) -> Void) {
+    func get(completion: @escaping (Result<ProductList, DomainError>) -> Void) {
         let productsRequest = GetProductsRequest()
         httpClient.send(from: productsRequest.request) { [weak self] in
             guard self != nil else { return }
             switch $0 {
             case .success(let data):
-                if let model: Products = data?.toModel() {
+                if let model: ProductList = data?.toModel() {
                     return completion(.success(model))
                 }
             case .failure:

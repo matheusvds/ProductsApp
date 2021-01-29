@@ -1,19 +1,24 @@
 import Foundation
 
-public struct Product {
-    
-    var identifier: Int
-    var name: String
-    var brand: String
-    var originalPrice: UInt
-    var currentPrice: UInt
-    var currency: String
-    var image: String
-}
-
 public typealias Products = [Product]
 
-extension Product: Decodable {
+public struct Product {
+    
+    public let identifier: Int
+    public let name: String
+    public let brand: String
+    public let originalPrice: Double
+    public let currentPrice: Double
+    public let currency: String
+    public let image: Image
+    
+    public struct Image {
+        let id: Int
+        let url: String
+    }
+}
+
+extension Product: Model {
     
     enum CodingKeys: String, CodingKey {
         
@@ -22,3 +27,5 @@ extension Product: Decodable {
         case identifier, name,brand, currency, image
     }
 }
+
+extension Product.Image: Model {}

@@ -1,5 +1,5 @@
 import Foundation
 
 public protocol GetProducts {
-    func get(completion: @escaping (Result<Products, DomainError>) -> Void)
+    func get(completion: @escaping (Result<ProductList, DomainError>) -> Void)
 }
