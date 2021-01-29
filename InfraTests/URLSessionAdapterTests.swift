@@ -23,6 +23,16 @@ class URLSessionAdapterTests: XCTestCase {
         expect(result: .failure(.noConnection), when: (data: nil, response: makeHttpResponse(), error: makeError()))
         expect(result: .failure(.noConnection), when: (data: nil, response: nil, error: nil))
     }
+    
+    func test_get_should_complete_with_data_when_request_completes_with_200() {
+        let data = makeValidData()
+        expect(result: .success(data), when: (data: data, response: makeHttpResponse(), error: nil))
+    }
+    
+    func test_get_should_complete_with_no_data_when_request_completes_with_204() {
+        expect(result: .success(nil), when: (data: makeEmptyData(), response: makeHttpResponse(statusCode: 204), error: nil))
+        expect(result: .success(nil), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 204), error: nil))
+    }
 
 }
 

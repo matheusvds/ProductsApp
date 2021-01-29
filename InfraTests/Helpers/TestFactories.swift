@@ -23,3 +23,7 @@ func makeValidData() -> Data {
 func makeHttpResponse(statusCode code: Int = 200) -> HTTPURLResponse {
     return HTTPURLResponse(url: makeDummyURL(), statusCode: code, httpVersion: nil, headerFields: nil)!
 }
+
+func makeEmptyData() -> Data {
+    return Data()
+}
