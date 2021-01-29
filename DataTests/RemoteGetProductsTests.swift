@@ -25,6 +25,13 @@ class RemoteGetProductsTests: XCTestCase {
         }
     }
     
+    func test_get_procuts_should_complete_with_error_when_client_completes_with_invalid_format() {
+        let (sut, httpClientSpy) = makeSut()
+        expect(sut, completeWith: .failure(.unexpected), when: {
+            httpClientSpy.complete(withData: makeInvalidData())
+        })
+    }
+    
 }
 
 extension RemoteGetProductsTests {
