@@ -24,16 +24,23 @@ class URLSessionAdapterTests: XCTestCase {
         expect(result: .failure(.noConnection), when: (data: nil, response: nil, error: nil))
     }
     
-    func test_get_should_complete_with_data_when_request_completes_with_200() {
+    func test_send_should_complete_with_data_when_request_completes_with_200() {
         let data = makeValidData()
         expect(result: .success(data), when: (data: data, response: makeHttpResponse(), error: nil))
     }
     
-    func test_get_should_complete_with_no_data_when_request_completes_with_204() {
+    func test_send_should_complete_with_no_data_when_request_completes_with_204() {
         expect(result: .success(nil), when: (data: makeEmptyData(), response: makeHttpResponse(statusCode: 204), error: nil))
         expect(result: .success(nil), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 204), error: nil))
     }
 
+    func test_send_should_complete_with_error_when_request_not_completes_with_200() {
+        expect(result: .failure(.badRequest), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 400), error: nil))
+        expect(result: .failure(.serverError), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 500), error: nil))
+        expect(result: .failure(.unauthorized), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 401), error: nil))
+        expect(result: .failure(.forbidden), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 403), error: nil))
+        expect(result: .failure(.noConnection), when: (data: makeValidData(), response: makeHttpResponse(statusCode: 300), error: nil))
+    }
 }
 
 extension URLSessionAdapterTests {
