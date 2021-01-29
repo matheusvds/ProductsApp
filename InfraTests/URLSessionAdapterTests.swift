@@ -50,6 +50,7 @@ extension URLSessionAdapterTests {
         configuration.protocolClasses = [URLProtocolStub.self]
         let session = URLSession(configuration: configuration)
         let sut = URLSessionAdapter(session: session)
+        checkMemoryLeak(for: sut)
         return sut
     }
     

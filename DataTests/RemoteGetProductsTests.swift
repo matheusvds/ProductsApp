@@ -81,6 +81,7 @@ extension RemoteGetProductsTests {
         
         let httpSpy = HttpClientSpy()
         let sut = RemoteGetProducts(httpClient: httpSpy)
+        checkMemoryLeak(for: sut)
         return (sut, httpSpy)
     }
     
