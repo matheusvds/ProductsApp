@@ -18,7 +18,7 @@
 		C6BDC17225C48C20002F1FA3 /* URLSessionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */; };
 		C6BDC17B25C48D92002F1FA3 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC17A25C48D92002F1FA3 /* URLProtocolStub.swift */; };
 		C6BDC18325C48DBD002F1FA3 /* URLProtocolStubObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC18225C48DBD002F1FA3 /* URLProtocolStubObserver.swift */; };
-		C6BDC18825C49021002F1FA3 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC18725C49021002F1FA3 /* TestFactories.swift */; };
+		C6BDC19D25C492DA002F1FA3 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC19C25C492DA002F1FA3 /* TestFactories.swift */; };
 		C6E4F9F325C4523A00106D69 /* GetProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4F9F225C4523A00106D69 /* GetProducts.swift */; };
 		C6E4F9F625C452E300106D69 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4F9F525C452E300106D69 /* Product.swift */; };
 		C6E4FA0D25C4560900106D69 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; };
@@ -107,7 +107,7 @@
 		C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapter.swift; sourceTree = "<group>"; };
 		C6BDC17A25C48D92002F1FA3 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLProtocolStub.swift; path = Infra/URLProtocolStub.swift; sourceTree = SOURCE_ROOT; };
 		C6BDC18225C48DBD002F1FA3 /* URLProtocolStubObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLProtocolStubObserver.swift; path = Infra/URLProtocolStubObserver.swift; sourceTree = SOURCE_ROOT; };
-		C6BDC18725C49021002F1FA3 /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
+		C6BDC19C25C492DA002F1FA3 /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		C6E4F9E825C451D300106D69 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E4F9EB25C451D300106D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E4F9F225C4523A00106D69 /* GetProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProducts.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 			children = (
 				C6BDC17A25C48D92002F1FA3 /* URLProtocolStub.swift */,
 				C6BDC18225C48DBD002F1FA3 /* URLProtocolStubObserver.swift */,
-				C6BDC18725C49021002F1FA3 /* TestFactories.swift */,
+				C6BDC19C25C492DA002F1FA3 /* TestFactories.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -589,7 +589,7 @@
 			files = (
 				C6BDC15B25C48BF3002F1FA3 /* URLSessionAdapterTests.swift in Sources */,
 				C6BDC17B25C48D92002F1FA3 /* URLProtocolStub.swift in Sources */,
-				C6BDC18825C49021002F1FA3 /* TestFactories.swift in Sources */,
+				C6BDC19D25C492DA002F1FA3 /* TestFactories.swift in Sources */,
 				C6BDC18325C48DBD002F1FA3 /* URLProtocolStubObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
