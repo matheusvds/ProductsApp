@@ -1,6 +1,6 @@
 import Foundation
 
-struct Product {
+public struct Product {
     
     var identifier: Int
     var name: String
@@ -10,6 +10,8 @@ struct Product {
     var currency: String
     var image: String
 }
+
+public typealias Products = [Product]
 
 extension Product: Decodable {
     
