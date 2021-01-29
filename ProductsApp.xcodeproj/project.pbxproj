@@ -12,10 +12,13 @@
 		C6BDC0B325C48257002F1FA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0B225C48257002F1FA3 /* Model.swift */; };
 		C6BDC0B925C48303002F1FA3 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0B825C48303002F1FA3 /* ProductList.swift */; };
 		C6BDC15625C48BF3002F1FA3 /* Infra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BDC14D25C48BF2002F1FA3 /* Infra.framework */; };
-		C6BDC15B25C48BF3002F1FA3 /* InfraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC15A25C48BF3002F1FA3 /* InfraTests.swift */; };
+		C6BDC15B25C48BF3002F1FA3 /* URLSessionAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC15A25C48BF3002F1FA3 /* URLSessionAdapterTests.swift */; };
 		C6BDC16C25C48C0C002F1FA3 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; };
 		C6BDC16D25C48C0C002F1FA3 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C6BDC17225C48C20002F1FA3 /* URLSessionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */; };
+		C6BDC17B25C48D92002F1FA3 /* URLProtocolStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC17A25C48D92002F1FA3 /* URLProtocolStub.swift */; };
+		C6BDC18325C48DBD002F1FA3 /* RequestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC18225C48DBD002F1FA3 /* RequestObserver.swift */; };
+		C6BDC18825C49021002F1FA3 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC18725C49021002F1FA3 /* TestFactories.swift */; };
 		C6E4F9F325C4523A00106D69 /* GetProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4F9F225C4523A00106D69 /* GetProducts.swift */; };
 		C6E4F9F625C452E300106D69 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4F9F525C452E300106D69 /* Product.swift */; };
 		C6E4FA0D25C4560900106D69 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; };
@@ -99,9 +102,12 @@
 		C6BDC14D25C48BF2002F1FA3 /* Infra.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Infra.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BDC15025C48BF2002F1FA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6BDC15525C48BF3002F1FA3 /* InfraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6BDC15A25C48BF3002F1FA3 /* InfraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfraTests.swift; sourceTree = "<group>"; };
+		C6BDC15A25C48BF3002F1FA3 /* URLSessionAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapterTests.swift; sourceTree = "<group>"; };
 		C6BDC15C25C48BF3002F1FA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAdapter.swift; sourceTree = "<group>"; };
+		C6BDC17A25C48D92002F1FA3 /* URLProtocolStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLProtocolStub.swift; path = Infra/URLProtocolStub.swift; sourceTree = SOURCE_ROOT; };
+		C6BDC18225C48DBD002F1FA3 /* RequestObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RequestObserver.swift; path = Infra/RequestObserver.swift; sourceTree = SOURCE_ROOT; };
+		C6BDC18725C49021002F1FA3 /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		C6E4F9E825C451D300106D69 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E4F9EB25C451D300106D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E4F9F225C4523A00106D69 /* GetProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProducts.swift; sourceTree = "<group>"; };
@@ -212,10 +218,21 @@
 		C6BDC15925C48BF3002F1FA3 /* InfraTests */ = {
 			isa = PBXGroup;
 			children = (
-				C6BDC15A25C48BF3002F1FA3 /* InfraTests.swift */,
+				C6BDC17925C48D83002F1FA3 /* Helpers */,
+				C6BDC15A25C48BF3002F1FA3 /* URLSessionAdapterTests.swift */,
 				C6BDC15C25C48BF3002F1FA3 /* Info.plist */,
 			);
 			path = InfraTests;
+			sourceTree = "<group>";
+		};
+		C6BDC17925C48D83002F1FA3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C6BDC17A25C48D92002F1FA3 /* URLProtocolStub.swift */,
+				C6BDC18225C48DBD002F1FA3 /* RequestObserver.swift */,
+				C6BDC18725C49021002F1FA3 /* TestFactories.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C6E4F9E925C451D300106D69 /* Domain */ = {
@@ -570,7 +587,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6BDC15B25C48BF3002F1FA3 /* InfraTests.swift in Sources */,
+				C6BDC15B25C48BF3002F1FA3 /* URLSessionAdapterTests.swift in Sources */,
+				C6BDC17B25C48D92002F1FA3 /* URLProtocolStub.swift in Sources */,
+				C6BDC18825C49021002F1FA3 /* TestFactories.swift in Sources */,
+				C6BDC18325C48DBD002F1FA3 /* RequestObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
