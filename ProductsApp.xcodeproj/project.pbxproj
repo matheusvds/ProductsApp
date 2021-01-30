@@ -21,6 +21,9 @@
 		C6BDC19D25C492DA002F1FA3 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC19C25C492DA002F1FA3 /* TestFactories.swift */; };
 		C6BDC1A225C49432002F1FA3 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC1A125C49432002F1FA3 /* XCTestCase+MemoryLeak.swift */; };
 		C6BDC1D825C49563002F1FA3 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC1A125C49432002F1FA3 /* XCTestCase+MemoryLeak.swift */; };
+		C6BDC1DD25C4AB41002F1FA3 /* SaveProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC1DC25C4AB41002F1FA3 /* SaveProducts.swift */; };
+		C6BDC1E325C577D9002F1FA3 /* LocalSaveProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC1E225C577D9002F1FA3 /* LocalSaveProducts.swift */; };
+		C6BDC1EC25C578C7002F1FA3 /* StorageSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC1EB25C578C7002F1FA3 /* StorageSave.swift */; };
 		C6E4F9F325C4523A00106D69 /* GetProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4F9F225C4523A00106D69 /* GetProducts.swift */; };
 		C6E4F9F625C452E300106D69 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4F9F525C452E300106D69 /* Product.swift */; };
 		C6E4FA0D25C4560900106D69 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; };
@@ -111,6 +114,9 @@
 		C6BDC18225C48DBD002F1FA3 /* URLProtocolStubObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = URLProtocolStubObserver.swift; path = Infra/URLProtocolStubObserver.swift; sourceTree = SOURCE_ROOT; };
 		C6BDC19C25C492DA002F1FA3 /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		C6BDC1A125C49432002F1FA3 /* XCTestCase+MemoryLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeak.swift"; sourceTree = "<group>"; };
+		C6BDC1DC25C4AB41002F1FA3 /* SaveProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveProducts.swift; sourceTree = "<group>"; };
+		C6BDC1E225C577D9002F1FA3 /* LocalSaveProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSaveProducts.swift; sourceTree = "<group>"; };
+		C6BDC1EB25C578C7002F1FA3 /* StorageSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageSave.swift; sourceTree = "<group>"; };
 		C6E4F9E825C451D300106D69 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E4F9EB25C451D300106D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6E4F9F225C4523A00106D69 /* GetProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProducts.swift; sourceTree = "<group>"; };
@@ -239,6 +245,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		C6BDC1EA25C578A5002F1FA3 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				C6BDC1EB25C578C7002F1FA3 /* StorageSave.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		C6E4F9E925C451D300106D69 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				C6E4F9F225C4523A00106D69 /* GetProducts.swift */,
+				C6BDC1DC25C4AB41002F1FA3 /* SaveProducts.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -271,10 +286,11 @@
 		C6E4FA0525C4560900106D69 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				C6E4FA3025C4576700106D69 /* UseCases */,
 				C6E4FA5825C460C400106D69 /* Helpers */,
 				C6E4FA4225C4599500106D69 /* ProductsAPI */,
+				C6BDC1EA25C578A5002F1FA3 /* Storage */,
 				C6E4FA3525C4579900106D69 /* Http */,
-				C6E4FA3025C4576700106D69 /* UseCases */,
 				C6E4FA0725C4560900106D69 /* Info.plist */,
 			);
 			path = Data;
@@ -303,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				C6E4FA3125C4578200106D69 /* RemoteGetProducts.swift */,
+				C6BDC1E225C577D9002F1FA3 /* LocalSaveProducts.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -603,6 +620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BDC1DD25C4AB41002F1FA3 /* SaveProducts.swift in Sources */,
 				C6E4F9F325C4523A00106D69 /* GetProducts.swift in Sources */,
 				C6BDC0B925C48303002F1FA3 /* ProductList.swift in Sources */,
 				C6E4FA6625C4776100106D69 /* DomainError.swift in Sources */,
@@ -615,6 +633,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6BDC1EC25C578C7002F1FA3 /* StorageSave.swift in Sources */,
+				C6BDC1E325C577D9002F1FA3 /* LocalSaveProducts.swift in Sources */,
 				C6E4FA3825C457BB00106D69 /* HttpError.swift in Sources */,
 				C6E4FA3E25C457DB00106D69 /* HttpClient.swift in Sources */,
 				C6E4FA4A25C45B7F00106D69 /* ProductsAPIResource.swift in Sources */,
