@@ -13,11 +13,17 @@ enum ProductList {
         }
         
         struct ViewModel {
-            let name: String
-            let image: String
-            let brand: String
-            let currentPrice: String
-            let originalPrice: String
+            
+            let items: [Item]
+            
+            struct Item {
+                
+                let name: String
+                let image: String
+                let brand: String
+                let currentPrice: String
+                let originalPrice: String
+            }
         }
     }
 }

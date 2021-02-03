@@ -12,8 +12,8 @@ final class ProductListPresenter {
 extension ProductListPresenter: ProductListPresentationLogic {
     
     func presentGetProducts(response: ProductList.GetProducts.Response) {
-        let viewModel = ProductList.GetProducts.ViewModel()
-        displayLogic?.displayGetProducts(viewModel: viewModel)
+//        let viewModel = ProductList.GetProducts.ViewModel()
+//        displayLogic?.displayGetProducts(viewModel: viewModel)
     }
     
 }
