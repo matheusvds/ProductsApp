@@ -24,7 +24,8 @@ extension ProductListPresenter: ProductListPresentationLogic {
                                 image: $0.name,
                                 brand: $0.brand,
                                 currentPrice: "\($0.currency) \($0.currentPrice)",
-                                originalPrice: "\($0.currency) \($0.originalPrice)"
+                                originalPrice: "\($0.currency) \($0.originalPrice)".strikeThrough(),
+                                originalPriceIsHidden: $0.currentPrice == $0.originalPrice
                             )
                 }, errorMessage: nil
             )

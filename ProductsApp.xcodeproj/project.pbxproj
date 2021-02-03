@@ -39,6 +39,7 @@
 		C696541025CB579F00111EC7 /* ProductListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696540F25CB579F00111EC7 /* ProductListTableView.swift */; };
 		C696541825CB5A9800111EC7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696541725CB5A9800111EC7 /* ProductCell.swift */; };
 		C696542C25CB5B0000111EC7 /* ProductCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696542B25CB5B0000111EC7 /* ProductCellModel.swift */; };
+		C696544E25CB62FE00111EC7 /* String+AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C696543325CB607900111EC7 /* String+AttributedText.swift */; };
 		C6BDC0A725C47FAB002F1FA3 /* getProductsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0A625C47FAB002F1FA3 /* getProductsJSON.swift */; };
 		C6BDC0AF25C480D9002F1FA3 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0AE25C480D9002F1FA3 /* TestExtensions.swift */; };
 		C6BDC0B325C48257002F1FA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0B225C48257002F1FA3 /* Model.swift */; };
@@ -242,6 +243,7 @@
 		C696540F25CB579F00111EC7 /* ProductListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableView.swift; sourceTree = "<group>"; };
 		C696541725CB5A9800111EC7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		C696542B25CB5B0000111EC7 /* ProductCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellModel.swift; sourceTree = "<group>"; };
+		C696543325CB607900111EC7 /* String+AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+AttributedText.swift"; sourceTree = "<group>"; };
 		C6BDC0A625C47FAB002F1FA3 /* getProductsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getProductsJSON.swift; sourceTree = "<group>"; };
 		C6BDC0AE25C480D9002F1FA3 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		C6BDC0B225C48257002F1FA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		C65684E725CB29DE0028F3B5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C696543325CB607900111EC7 /* String+AttributedText.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -987,10 +990,10 @@
 			targets = (
 				C656849925CB16470028F3B5 /* ProductsApp */,
 				C656842625C9D5520028F3B5 /* Application */,
+				C656842E25C9D5530028F3B5 /* ApplicationTests */,
 				C6E4F9E725C451D300106D69 /* Domain */,
 				C6E4FA0325C4560900106D69 /* Data */,
 				C6E4FA0B25C4560900106D69 /* DataTests */,
-				C656842E25C9D5530028F3B5 /* ApplicationTests */,
 				C6BDC14C25C48BF2002F1FA3 /* Infra */,
 				C6BDC15425C48BF3002F1FA3 /* InfraTests */,
 				C656850225CB4D080028F3B5 /* UI */,
@@ -1083,6 +1086,7 @@
 				C656849125CB10BD0028F3B5 /* Application.swift in Sources */,
 				C656846425C9D65B0028F3B5 /* ProductListInteractor.swift in Sources */,
 				C656846A25C9D66E0028F3B5 /* ProductListPresenter.swift in Sources */,
+				C696544E25CB62FE00111EC7 /* String+AttributedText.swift in Sources */,
 				C656845E25C9D64B0028F3B5 /* ProductListViewController.swift in Sources */,
 				C656847025C9D6790028F3B5 /* ProductListModels.swift in Sources */,
 			);

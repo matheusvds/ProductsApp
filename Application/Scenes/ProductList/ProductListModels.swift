@@ -26,7 +26,8 @@ enum ProductsList {
                 let image: String
                 let brand: String
                 let currentPrice: String
-                let originalPrice: String
+                let originalPrice: NSAttributedString
+                let originalPriceIsHidden: Bool
             }
         }
     }

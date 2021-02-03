@@ -5,7 +5,6 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
         
     private lazy var productImage: UIImageView = {
         let view = UIImageView()
-        
         view.image = UIImage(named: "image", in: Bundle(for: type(of: self)), with: .none)
         view.contentMode = .scaleAspectFit
         view.backgroundColor = .red
@@ -14,6 +13,7 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
     
     private lazy var productName: UITextField = {
         let view = UITextField()
+        view.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return view
     }()
     
@@ -29,6 +29,16 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
     
     private lazy var brand: UITextField = {
         let view = UITextField()
+        view.font = UIFont.systemFont(ofSize: 11, weight: .medium)
+        return view
+    }()
+    
+    private lazy var stackView: UIStackView = { [weak self] in
+        let subviews = [self?.currentPrice, self?.originalPrice].compactMap { $0 }
+        let view = UIStackView(arrangedSubviews: subviews)
+        view.distribution = .equalSpacing
+        view.axis = .vertical
+        view.spacing = 5
         return view
     }()
     
@@ -38,10 +48,11 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
     }
     
     func setup(with model: ProductCellModel) {
+        brand.text = model.brand
         productName.text = model.name
         currentPrice.text = model.currentPrice
-        originalPrice.text = model.originalPrice
-        brand.text = model.brand
+        originalPrice.attributedText = model.originalPrice
+        originalPrice.isHidden = model.originalPriceIsHidden
     }
     
     required init?(coder: NSCoder) {
@@ -59,6 +70,7 @@ extension ProductCell: ViewCode {
         addSubview(currentPrice)
         addSubview(originalPrice)
         addSubview(brand)
+        addSubview(stackView)
     }
     
     func buildConstraints() {
@@ -70,16 +82,20 @@ extension ProductCell: ViewCode {
                             paddingBottom: 5,
                             width: frame.size.width/2)
         
-        currentPrice.anchor(top: productImage.topAnchor,
+        productName.anchor(top: productImage.topAnchor,
                             left: productImage.rightAnchor,
-                            bottom: nil,
                             right: rightAnchor,
                             paddingTop: 20,
                             paddingLeft: 10)
-    }
-    
-    func additionalConfiguration() {
         
+        brand.anchor(top: productName.bottomAnchor,
+                     left: productName.leftAnchor,
+                     paddingTop: 0)
+        
+        stackView.anchor(top: brand.bottomAnchor,
+                         left: brand.leftAnchor,
+                         right: rightAnchor,
+                         paddingTop: 5)
     }
     
 }

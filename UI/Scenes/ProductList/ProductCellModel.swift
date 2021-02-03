@@ -7,6 +7,6 @@ public protocol ProductCellModel {
     var image: String { get }
     var brand: String { get }
     var currentPrice: String { get }
-    var originalPrice: String { get }
-    
+    var originalPrice: NSAttributedString { get }
+    var originalPriceIsHidden: Bool { get }
 }
