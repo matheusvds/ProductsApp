@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -74,6 +74,7 @@
 		C6E4FA5F25C4755400106D69 /* HttpClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA5E25C4755400106D69 /* HttpClientSpy.swift */; };
 		C6E4FA6625C4776100106D69 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA6525C4776100106D69 /* DomainError.swift */; };
 		C6E4FA7225C47E3100106D69 /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E4FA7125C47E3100106D69 /* TestFactories.swift */; };
+		C6E7382925CB6C73007BC34F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C6E7382825CB6C73007BC34F /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +332,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E7382925CB6C73007BC34F /* SDWebImage in Frameworks */,
 				C6BDC16C25C48C0C002F1FA3 /* Data.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -851,6 +853,9 @@
 				C6BDC16F25C48C0C002F1FA3 /* PBXTargetDependency */,
 			);
 			name = Infra;
+			packageProductDependencies = (
+				C6E7382825CB6C73007BC34F /* SDWebImage */,
+			);
 			productName = Infra;
 			productReference = C6BDC14D25C48BF2002F1FA3 /* Infra.framework */;
 			productType = "com.apple.product-type.framework";
@@ -984,6 +989,9 @@
 				Base,
 			);
 			mainGroup = C6B3F18125C359CE00D17EDB;
+			packageReferences = (
+				C6E7382725CB6C73007BC34F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = C6B3F18B25C359CE00D17EDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2004,6 +2012,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C6E7382725CB6C73007BC34F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C6E7382825CB6C73007BC34F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6E7382725CB6C73007BC34F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C6B3F18225C359CE00D17EDB /* Project object */;
 }
