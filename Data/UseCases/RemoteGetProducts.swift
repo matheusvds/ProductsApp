@@ -1,7 +1,7 @@
 import Domain
 import Foundation
 
-final class RemoteGetProducts: GetProducts {
+final public class RemoteGetProducts: GetProducts {
     
     private let httpClient: HttpClient
     
@@ -9,7 +9,7 @@ final class RemoteGetProducts: GetProducts {
         self.httpClient = httpClient
     }
     
-    func get(completion: @escaping (Result<ProductList, DomainError>) -> Void) {
+    public func get(completion: @escaping (Result<ProductList, DomainError>) -> Void) {
         
         httpClient.send(from: GetProductsRequest().request) { [weak self] in
             guard self != nil else { return }
