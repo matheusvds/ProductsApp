@@ -2,7 +2,7 @@ import Foundation
 import Domain
 
 protocol ProductListBusinessLogic {
-    func getProducts(request: ProductList.GetProducts.Request)
+    func getProducts(request: ProductsList.GetProducts.Request)
 }
 
 protocol ProductListDataStore {
@@ -25,10 +25,10 @@ final class ProductListInteractor: ProductListDataStore {
 // MARK: - ProductListBusinessLogic
 extension ProductListInteractor: ProductListBusinessLogic {
     
-    func getProducts(request: ProductList.GetProducts.Request) {
+    func getProducts(request: ProductsList.GetProducts.Request) {
         
         getProductsUseCase.get { [weak self] in
-            let response = ProductList.GetProducts.Response(productList: $0)
+            let response = ProductsList.GetProducts.Response(result: $0)
             self?.presenter?.presentGetProducts(response: response)
         }
     }

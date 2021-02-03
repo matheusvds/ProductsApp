@@ -1,7 +1,9 @@
 import Foundation
 import Domain
 
-enum ProductList {
+typealias GetProductsViewModel = ProductsList.GetProducts.ViewModel
+
+enum ProductsList {
     enum GetProducts {
         
         struct Request {
@@ -9,12 +11,13 @@ enum ProductList {
         }
         
         struct Response {
-            let productList: Result<Domain.ProductList, DomainError>
+            let result: Result<Domain.ProductList, DomainError>
         }
         
         struct ViewModel {
             
             let items: [Item]
+            let errorMessage: String?
             
             struct Item {
                 
