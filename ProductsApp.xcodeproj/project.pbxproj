@@ -11,6 +11,10 @@
 		C656843525C9D5530028F3B5 /* ApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656843425C9D5530028F3B5 /* ApplicationTests.swift */; };
 		C656845225C9D59A0028F3B5 /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; };
 		C656845325C9D59A0028F3B5 /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C6E4FA0425C4560900106D69 /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C656845E25C9D64B0028F3B5 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656845D25C9D64B0028F3B5 /* ProductListViewController.swift */; };
+		C656846425C9D65B0028F3B5 /* ProductListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656846325C9D65B0028F3B5 /* ProductListInteractor.swift */; };
+		C656846A25C9D66E0028F3B5 /* ProductListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656846925C9D66E0028F3B5 /* ProductListPresenter.swift */; };
+		C656847025C9D6790028F3B5 /* ProductListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = C656846F25C9D6790028F3B5 /* ProductListModels.swift */; };
 		C6BDC0A725C47FAB002F1FA3 /* getProductsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0A625C47FAB002F1FA3 /* getProductsJSON.swift */; };
 		C6BDC0AF25C480D9002F1FA3 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0AE25C480D9002F1FA3 /* TestExtensions.swift */; };
 		C6BDC0B325C48257002F1FA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0B225C48257002F1FA3 /* Model.swift */; };
@@ -134,6 +138,10 @@
 		C656842F25C9D5530028F3B5 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656843425C9D5530028F3B5 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		C656843625C9D5530028F3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C656845D25C9D64B0028F3B5 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		C656846325C9D65B0028F3B5 /* ProductListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListInteractor.swift; sourceTree = "<group>"; };
+		C656846925C9D66E0028F3B5 /* ProductListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListPresenter.swift; sourceTree = "<group>"; };
+		C656846F25C9D6790028F3B5 /* ProductListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListModels.swift; sourceTree = "<group>"; };
 		C6BDC0A625C47FAB002F1FA3 /* getProductsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getProductsJSON.swift; sourceTree = "<group>"; };
 		C6BDC0AE25C480D9002F1FA3 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		C6BDC0B225C48257002F1FA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -235,6 +243,7 @@
 		C656842825C9D5520028F3B5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C656845B25C9D62E0028F3B5 /* Scenes */,
 				C656842A25C9D5520028F3B5 /* Info.plist */,
 			);
 			path = Application;
@@ -247,6 +256,25 @@
 				C656843625C9D5530028F3B5 /* Info.plist */,
 			);
 			path = ApplicationTests;
+			sourceTree = "<group>";
+		};
+		C656845B25C9D62E0028F3B5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C656845C25C9D6320028F3B5 /* ProductList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		C656845C25C9D6320028F3B5 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				C656845D25C9D64B0028F3B5 /* ProductListViewController.swift */,
+				C656846325C9D65B0028F3B5 /* ProductListInteractor.swift */,
+				C656846925C9D66E0028F3B5 /* ProductListPresenter.swift */,
+				C656846F25C9D6790028F3B5 /* ProductListModels.swift */,
+			);
+			path = ProductList;
 			sourceTree = "<group>";
 		};
 		C6B3F18125C359CE00D17EDB = {
@@ -633,6 +661,7 @@
 				TargetAttributes = {
 					C656842625C9D5520028F3B5 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					C656842E25C9D5530028F3B5 = {
 						CreatedOnToolsVersion = 12.2;
@@ -738,6 +767,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C656846425C9D65B0028F3B5 /* ProductListInteractor.swift in Sources */,
+				C656846A25C9D66E0028F3B5 /* ProductListPresenter.swift in Sources */,
+				C656845E25C9D64B0028F3B5 /* ProductListViewController.swift in Sources */,
+				C656847025C9D6790028F3B5 /* ProductListModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +884,7 @@
 		C656843825C9D5530028F3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -869,8 +903,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Application;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -880,6 +916,7 @@
 		C656843925C9D5530028F3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -898,8 +935,9 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Application;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -909,6 +947,7 @@
 		C656843A25C9D5530028F3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GRKYXDG5QL;
@@ -921,7 +960,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.ApplicationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -929,6 +968,7 @@
 		C656843B25C9D5530028F3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GRKYXDG5QL;
@@ -941,7 +981,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.ApplicationTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1084,7 +1124,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Infra;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1115,7 +1155,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Infra;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1139,7 +1179,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.InfraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1160,7 +1200,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.InfraTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1187,7 +1227,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1218,7 +1258,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Domain;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1248,7 +1288,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Data;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1279,7 +1319,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.Data;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1303,7 +1343,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.DataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1324,7 +1364,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.DataTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
