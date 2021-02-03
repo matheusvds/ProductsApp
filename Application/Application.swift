@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import Domain
+import UI
 
 public protocol Application {
     func start()
@@ -31,7 +32,8 @@ public final class Main: Application {
         
         let presenter = ProductListPresenter()
         let interactor = ProductListInteractor(getProductsUseCase: getProducts)
-        let viewController = ProductListViewController(interactor: interactor)
+        let view = ProductListView()
+        let viewController = ProductListViewController(interactor: interactor, viewLogic: view)
         
         interactor.presenter = presenter
         presenter.displayLogic = viewController

@@ -7,31 +7,51 @@
 		<key>Application.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Data.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 		<key>Domain.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>Infra.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 		<key>ProductsApp.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>0</integer>
+		</dict>
+		<key>UI.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C656842625C9D5520028F3B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C656842E25C9D5530028F3B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C656849925CB16470028F3B5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C6B3F18925C359CE00D17EDB</key>
 		<dict>
 			<key>primary</key>

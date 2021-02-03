@@ -1,5 +1,6 @@
 import Foundation
 import Domain
+import UI
 
 typealias GetProductsViewModel = ProductsList.GetProducts.ViewModel
 
@@ -19,7 +20,7 @@ enum ProductsList {
             let items: [Item]
             let errorMessage: String?
             
-            struct Item {
+            struct Item: ProductCellModel {
                 
                 let name: String
                 let image: String
