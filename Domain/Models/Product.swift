@@ -13,8 +13,8 @@ public struct Product {
     public let image: Image
     
     public struct Image {
-        let id: Int
-        let url: String
+       public let id: Int
+       public let url: String
     }
 }
 

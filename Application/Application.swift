@@ -33,8 +33,9 @@ public final class Main: Application {
         let presenter = ProductListPresenter()
         let interactor = ProductListInteractor(getProductsUseCase: getProducts)
         let view = ProductListView()
-        let viewController = ProductListViewController(interactor: interactor, viewLogic: view)
+        let viewController = ProductListViewController(interactor: interactor, viewLogic: view, imageLoader: UIImageLoader())
         
+        view.delegate = viewController
         interactor.presenter = presenter
         presenter.displayLogic = viewController
         

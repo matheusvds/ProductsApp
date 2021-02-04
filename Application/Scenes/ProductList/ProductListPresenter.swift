@@ -21,7 +21,7 @@ extension ProductListPresenter: ProductListPresentationLogic {
                 items: productList.products.map {
                             GetProductsViewModel.Item(
                                 name: $0.name,
-                                image: $0.name,
+                                image: $0.image.url,
                                 brand: $0.brand,
                                 currentPrice: "\($0.currency) \($0.currentPrice)",
                                 originalPrice: "\($0.currency) \($0.originalPrice)".strikeThrough(),

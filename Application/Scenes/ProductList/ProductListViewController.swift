@@ -9,11 +9,14 @@ protocol ProductListDisplayLogic: class {
 final class ProductListViewController: UIViewController {
     let interactor: ProductListBusinessLogic
     private let viewLogic: ProductListViewLogic
+    private let imageLoader: ImageLoader
     
     init(interactor: ProductListBusinessLogic,
-         viewLogic: ProductListViewLogic) {
+         viewLogic: ProductListViewLogic,
+         imageLoader: ImageLoader) {
         self.interactor = interactor
         self.viewLogic = viewLogic
+        self.imageLoader = imageLoader
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,3 +44,10 @@ extension ProductListViewController: ProductListDisplayLogic {
     
 }
 
+
+// MARK: - ProductListViewDelegate
+extension ProductListViewController: ProductListViewDelegate {
+    func set(imageView: UIImageView, with url: String) {
+        imageLoader.set(imageView: imageView, with: url, completion: { _ in })
+    }
+}

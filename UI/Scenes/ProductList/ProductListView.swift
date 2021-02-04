@@ -5,10 +5,15 @@ public protocol ProductListViewLogic {
     
     var view: UIView { get }
     func set(items: [ProductCellModel])
-    
+}
+
+public protocol ProductListViewDelegate: class {
+    func set(imageView: UIImageView, with url: String)
 }
 
 public final class ProductListView: UIView {
+    
+    public weak var delegate: ProductListViewDelegate?
     
     private lazy var tableView: UITableView = {
         let tableView = ProductListTableView()
@@ -66,12 +71,18 @@ extension ProductListView: UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as? ProductCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as? ProductCell else {
+            return UITableViewCell()
+        }
         
         let item = items[indexPath.row]
-        cell?.setup(with: item)
+        cell.setup(with: item)
+        delegate?.set(imageView: cell.productImage, with: item.image)
         
-        return cell ?? UITableViewCell()
+        return cell
     }
 
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        150
+    }
 }

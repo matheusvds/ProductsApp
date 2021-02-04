@@ -54,4 +54,5 @@ class ProductListTableView: UITableView {
         emptyView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         emptyView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -60).isActive = true
     }
+
 }
