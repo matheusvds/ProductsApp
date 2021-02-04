@@ -7,13 +7,23 @@ public protocol ProductListViewLogic {
     func set(items: [ProductCellModel])
 }
 
-public protocol ProductListViewDelegate: class {
+public typealias ProductListViewDelegate = ImageLoadingDelegate & SearchDelegate
+
+public protocol ImageLoadingDelegate: class {
     func set(imageView: UIImageView, with url: String)
+}
+
+public protocol SearchDelegate: class {
+    func setupInNavigation(controller: UISearchController)
 }
 
 public final class ProductListView: UIView {
     
-    public weak var delegate: ProductListViewDelegate?
+    public weak var delegate: ProductListViewDelegate? {
+        didSet {
+            delegate?.setupInNavigation(controller: searchController)
+        }
+    }
     
     private lazy var tableView: UITableView = {
         let tableView = ProductListTableView()
@@ -22,7 +32,21 @@ public final class ProductListView: UIView {
         return tableView
     }()
     
-    private var items = [ProductCellModel]()
+    private lazy var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchBar.autocapitalizationType = .none
+        controller.searchResultsUpdater = self
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.placeholder = "we searched for kittens, wanna try?"
+        return controller
+    }()
+    
+    private var items: [ProductCellModel] {
+        searchController.isActive ? searchedItems : fetchedItems
+    }
+    
+    private var fetchedItems = [ProductCellModel]()
+    private var searchedItems = [ProductCellModel]()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,12 +67,11 @@ extension ProductListView: ProductListViewLogic {
     }
     
     public func set(items: [ProductCellModel]) {
-        self.items = items
+        self.fetchedItems = items
         DispatchQueue.main.async(execute: tableView.reloadData)
     }
     
 }
-
 
 // MARK: - View Code
 extension ProductListView: ViewCode {
@@ -61,6 +84,22 @@ extension ProductListView: ViewCode {
         tableView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, enableInsets: true)
     }
 
+}
+
+// MARK: - UISearchResultsUpdating
+extension ProductListView: UISearchResultsUpdating {
+    
+    public func updateSearchResults(for searchController: UISearchController) {
+        if let text = searchController.searchBar.text, !text.isEmpty {
+            self.searchedItems = self.fetchedItems.filter { $0.name.lowercased().contains(text.lowercased()) }
+        }
+        else {
+            self.searchedItems = self.fetchedItems
+            tableView.reloadData()
+        }
+        
+        tableView.reloadData()
+    }
 }
 
 // MARK: - UITableViewDataSource

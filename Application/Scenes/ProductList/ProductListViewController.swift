@@ -35,7 +35,7 @@ final class ProductListViewController: UIViewController {
     }
     
     private func setup() {
-        setupTitle()
+        setupController()
     }
     
 }
@@ -48,6 +48,10 @@ extension ProductListViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
+    private func setupController() {
+        setupTitle()
+        definesPresentationContext = true
+    }
 }
 
 // MARK: - ProductListDisplayLogic
@@ -61,6 +65,10 @@ extension ProductListViewController: ProductListDisplayLogic {
 
 // MARK: - ProductListViewDelegate
 extension ProductListViewController: ProductListViewDelegate {
+    func setupInNavigation(controller: UISearchController) {
+        navigationItem.searchController = controller
+    }
+    
     func set(imageView: UIImageView, with url: String) {
         imageLoader.set(imageView: imageView, with: url, completion: { _ in })
     }
