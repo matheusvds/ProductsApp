@@ -30,7 +30,22 @@ final class ProductListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
         interactor.getProducts(request: ProductsList.GetProducts.Request())
+    }
+    
+    private func setup() {
+        setupTitle()
+    }
+    
+}
+
+// MARK: - Helpers
+extension ProductListViewController {
+    
+    private func setupTitle() {
+        title = "Products"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }
@@ -43,7 +58,6 @@ extension ProductListViewController: ProductListDisplayLogic {
     }
     
 }
-
 
 // MARK: - ProductListViewDelegate
 extension ProductListViewController: ProductListViewDelegate {

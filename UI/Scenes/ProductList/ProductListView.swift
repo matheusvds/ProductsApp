@@ -58,7 +58,7 @@ extension ProductListView: ViewCode {
     }
     
     func buildConstraints() {
-        tableView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor)
+        tableView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, enableInsets: true)
     }
 
 }
