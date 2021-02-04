@@ -16,20 +16,8 @@ extension ProductListPresenter: ProductListPresentationLogic {
         
         switch response.result {
         case .success(let productList):
-            
-            let viewModel = ProductsList.GetProducts.ViewModel(
-                items: productList.products.map {
-                            GetProductsViewModel.Item(
-                                name: $0.name,
-                                image: $0.image.url,
-                                brand: $0.brand,
-                                currentPrice: "\($0.currency) \($0.currentPrice)",
-                                originalPrice: "\($0.currency) \($0.originalPrice)".strikeThrough(),
-                                originalPriceIsHidden: $0.currentPrice == $0.originalPrice
-                            )
-                }, errorMessage: nil
-            )
-            
+
+            let  viewModel = formatViewModel(from: productList)
             displayLogic?.displayGetProducts(viewModel: viewModel)
         case .failure(let error):
             
@@ -37,6 +25,33 @@ extension ProductListPresenter: ProductListPresentationLogic {
             displayLogic?.displayGetProducts(viewModel: viewModel)
             
         }
+    }
+    
+    private func formatViewModel(from productList: ProductList) -> ProductsList.GetProducts.ViewModel {
+        return ProductsList.GetProducts.ViewModel(
+            items: productList.products.map {
+                        GetProductsViewModel.Item(
+                            name: $0.name,
+                            image: $0.image.url,
+                            brand: $0.brand,
+                            currentPrice: format(price: $0.currentPrice, with: $0.currency),
+                            originalPrice: format(price: $0.originalPrice, with: $0.currency).strikeThrough(),
+                            originalPriceIsHidden: $0.currentPrice == $0.originalPrice
+                        )
+            }, errorMessage: nil
+        )
+    }
+    
+    private func format(price: Double, with currencyCode: String) -> String {
+        let formatter = NumberFormatter()
+        
+        formatter.currencyCode = currencyCode
+        formatter.numberStyle = .currency
+        
+        let number = NSNumber(value: price)
+        
+        return formatter.string(from: number) ?? String()
+        
     }
 }
 
