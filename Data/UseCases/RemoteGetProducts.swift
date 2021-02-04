@@ -10,7 +10,6 @@ final public class RemoteGetProducts: GetProducts {
     }
     
     public func get(completion: @escaping (Result<ProductList, DomainError>) -> Void) {
-        
         httpClient.send(from: GetProductsRequest().request) { [weak self] in
             guard self != nil else { return }
             switch $0 {

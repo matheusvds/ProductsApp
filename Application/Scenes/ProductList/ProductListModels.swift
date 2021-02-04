@@ -5,6 +5,7 @@ import UI
 typealias GetProductsViewModel = ProductsList.GetProducts.ViewModel
 
 enum ProductsList {
+    
     enum GetProducts {
         
         struct Request {
@@ -31,5 +32,6 @@ enum ProductsList {
             }
         }
     }
+    
 }
 

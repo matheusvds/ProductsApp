@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 extension String {
+    
     func strikeThrough() -> NSAttributedString {
         let attributeString =  NSMutableAttributedString(string: self)
         attributeString.addAttribute(
@@ -10,4 +11,5 @@ extension String {
                    range:NSMakeRange(0,attributeString.length))
         return attributeString
     }
+    
 }

@@ -10,7 +10,6 @@ public final class URLSessionAdapter: HttpClient {
     }
     
     public func send(from request: URLRequest, completion: @escaping (HttpClient.Result) -> Void) {
-        
         session.dataTask(with: request) { (data, urlResponse, error) in
             if let data = data, let response = urlResponse as? HTTPURLResponse, error == nil {
                 switch response.statusCode {
@@ -35,6 +34,5 @@ public final class URLSessionAdapter: HttpClient {
         }.resume()
     }
     
-
 }
 

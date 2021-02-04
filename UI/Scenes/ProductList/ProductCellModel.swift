@@ -9,4 +9,5 @@ public protocol ProductCellModel {
     var currentPrice: String { get }
     var originalPrice: NSAttributedString { get }
     var originalPriceIsHidden: Bool { get }
+    
 }

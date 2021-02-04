@@ -16,6 +16,7 @@ public struct Product {
        public let id: Int
        public let url: String
     }
+    
 }
 
 extension Product: Model {

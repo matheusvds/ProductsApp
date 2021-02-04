@@ -10,7 +10,6 @@ final class LocalSaveProducts: SaveProducts {
     }
     
     func save(products: Products, completion: @escaping (Result<Void, DomainError>) -> Void) {
-        
         guard let data = try? JSONEncoder().encode(products) else {
             return completion(.failure(.unexpected))
         }
@@ -24,4 +23,5 @@ final class LocalSaveProducts: SaveProducts {
             return completion(.failure(.unexpected))
         }
     }
+    
 }

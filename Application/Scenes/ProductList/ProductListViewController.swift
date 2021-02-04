@@ -3,10 +3,13 @@ import UIKit
 import UI
 
 protocol ProductListDisplayLogic: class {
+    
     func displayGetProducts(viewModel: ProductsList.GetProducts.ViewModel)
+    
 }
 
 final class ProductListViewController: UIViewController {
+    
     let interactor: ProductListBusinessLogic
     private let viewLogic: ProductListViewLogic
     private let imageLoader: ImageLoader
@@ -65,6 +68,7 @@ extension ProductListViewController: ProductListDisplayLogic {
 
 // MARK: - ProductListViewDelegate
 extension ProductListViewController: ProductListViewDelegate {
+    
     func setupInNavigation(controller: UISearchController) {
         navigationItem.searchController = controller
     }
@@ -72,4 +76,5 @@ extension ProductListViewController: ProductListViewDelegate {
     func set(imageView: UIImageView, with url: String) {
         imageLoader.set(imageView: imageView, with: url, completion: { _ in })
     }
+    
 }

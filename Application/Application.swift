@@ -4,7 +4,9 @@ import Domain
 import UI
 
 public protocol Application {
+    
     func start()
+    
 }
 
 public final class Main: Application {
@@ -29,7 +31,6 @@ public final class Main: Application {
     
     
     func makeProductListViewController() -> ProductListViewController {
-        
         let presenter = ProductListPresenter()
         let interactor = ProductListInteractor(getProductsUseCase: getProducts)
         let view = ProductListView()

@@ -4,10 +4,13 @@ import UIKit
 import UI
 
 protocol ImageLoader {
+    
     func set(imageView: UIImageView, with url: String, completion: @escaping (UIImage?) -> Void)
+    
 }
 
 class UIImageLoader: ImageLoader {
+    
     func set(imageView: UIImageView, with url: String, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: url) else {
             debugPrint("Malformed string")
@@ -23,4 +26,5 @@ class UIImageLoader: ImageLoader {
             completion(image)
         }
     }
+    
 }

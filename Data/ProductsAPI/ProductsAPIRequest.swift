@@ -4,6 +4,7 @@ public protocol ProductsAPIRequest {
     
     var method: String { get }
     var resource: ProductsAPIResource { get }
+    
 }
 
 public extension ProductsAPIRequest {
@@ -37,4 +38,5 @@ public extension ProductsAPIRequest {
         request.httpMethod = method
         return request
     }
+    
 }

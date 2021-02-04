@@ -2,18 +2,21 @@ import Foundation
 import Domain
 
 protocol ProductListPresentationLogic {
+    
     func presentGetProducts(response: ProductsList.GetProducts.Response)
+    
 }
 
 final class ProductListPresenter {
+    
     weak var displayLogic: ProductListDisplayLogic?
+    
 }
 
 // MARK: - ProductListPresentationLogic
 extension ProductListPresenter: ProductListPresentationLogic {
     
     func presentGetProducts(response: ProductsList.GetProducts.Response) {
-        
         switch response.result {
         case .success(let productList):
 
@@ -28,7 +31,6 @@ extension ProductListPresenter: ProductListPresentationLogic {
     }
     
     private func formatViewModel(from productList: ProductList) -> ProductsList.GetProducts.ViewModel {
-        
         return ProductsList.GetProducts.ViewModel(
             items: productList.products.map {
                         GetProductsViewModel.Item(
@@ -45,22 +47,23 @@ extension ProductListPresenter: ProductListPresentationLogic {
     }
     
     private func format(price: Double, with currencyCode: String) -> String {
-        
         let formatter = NumberFormatter()
         formatter.currencyCode = currencyCode
         formatter.numberStyle = .currency
         
         let number = NSNumber(value: price)
         return formatter.string(from: number) ?? String()
-        
     }
+    
 }
 
 extension DomainError {
+    
     var errorMessage: String {
         switch self {
         case .unexpected:
             return "An unexpected error occurred 👩‍🚒"
         }
     }
+    
 }
