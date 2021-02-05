@@ -20,14 +20,11 @@ extension ProductListPresenter: ProductListPresentationLogic {
     func presentGetProducts(response: ProductsList.GetProducts.Response) {
         switch response.remoteResult {
         case .success(let productList):
-
             let  viewModel = formatViewModel(from: productList)
             displayLogic?.displayGetProducts(viewModel: viewModel)
         case .failure(let error):
-            
             let viewModel = ProductsList.GetProducts.ViewModel(items: [], errorMessage: error.errorMessage)
             displayLogic?.displayGetProducts(viewModel: viewModel)
-        
         case .none: break
         }
         
@@ -54,7 +51,11 @@ extension ProductListPresenter: ProductListPresentationLogic {
         }
 
     }
-    
+ 
+}
+
+// MARK: - Helpers
+extension ProductListPresenter {
     
     private func formatViewModel(from productList: ProductList) -> ProductsList.GetProducts.ViewModel {
         return ProductsList.GetProducts.ViewModel(
@@ -85,6 +86,7 @@ extension ProductListPresenter: ProductListPresentationLogic {
     
 }
 
+// MARK: - DomainError messages
 extension DomainError {
     
     var errorMessage: String {
