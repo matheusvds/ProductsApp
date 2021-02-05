@@ -15,7 +15,8 @@ enum ProductsList {
         
         struct Response {
             
-            let result: Result<Domain.ProductList, DomainError>
+            var remoteResult: Result<Domain.ProductList, DomainError>? = nil
+            var localResult: Result<[ProductItemModel], DomainError>? = nil
             
         }
         
@@ -34,12 +35,12 @@ enum ProductsList {
         }
         
         struct Response {
-            
+            let result: Result<Void, DomainError>
             
         }
         
         struct ViewModel {
-
+            let message: String
         }
     }
     

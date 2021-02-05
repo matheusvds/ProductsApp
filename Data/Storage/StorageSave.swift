@@ -7,9 +7,3 @@ public protocol StorageSave {
     func save(items: Set<ProductItemModel>) -> Result<Void, StorageError>
     
 }
-
-public enum StorageError: Error {
-    
-    case unexpected
-    
-}

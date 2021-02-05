@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let remoteGetProducts = RemoteGetProducts(httpClient: httpClient)
         let remoteReachability = RemoteGetReachability(network: NetworkAdapter())
         let localSaveProducts = LocalSaveProducts(storage: database)
+        let localGetProcuts = LocalGetProducts(storage: database)
         
         let mainApp = Main(getProducts: remoteGetProducts,
                            saveProducts: localSaveProducts,
+                           localProducts: localGetProcuts,
                            getReachability: remoteReachability)
         
         mainApp.window = self?.window

@@ -7,6 +7,7 @@ import SharedModels
 protocol ProductListDisplayLogic: class {
     
     func displayGetProducts(viewModel: ProductsList.GetProducts.ViewModel)
+    func displaySaveProducts(viewModel: ProductsList.SaveProducts.ViewModel)
     
 }
 
@@ -70,15 +71,12 @@ extension ProductListViewController: ProductListDisplayLogic {
     
     func displayGetProducts(viewModel: ProductsList.GetProducts.ViewModel) {
         viewLogic.set(items: viewModel.items)
-//        do {
-//            let request = NSFetchRequest<Product>(entityName: "Product")
-//            let products = try context.fetch(request)
-//            products.forEach { print($0.name!) }
-//        } catch {
-//            print("\(error)")
-//        }
     }
 
+    func displaySaveProducts(viewModel: ProductsList.SaveProducts.ViewModel) {
+        print(viewModel.message)
+    }
+    
 }
 
 // MARK: - ProductListViewDelegate

@@ -18,14 +18,17 @@ final class ProductListInteractor: ProductListDataStore {
     // MARK: - Use Cases
     let getProductsUseCase: GetProducts
     let getReachbilityUseCase: GetReachbility
-    let saveProducts: SaveProducts
+    let saveProductsUseCase: SaveProducts
+    let localProductsUseCase: LocalProducts
     
     init(getProductsUseCase: GetProducts,
          getReachbilityUseCase: GetReachbility,
-         saveProducts: SaveProducts) {
+         saveProducts: SaveProducts,
+         localProducts: LocalProducts) {
         self.getProductsUseCase = getProductsUseCase
         self.getReachbilityUseCase = getReachbilityUseCase
-        self.saveProducts = saveProducts
+        self.saveProductsUseCase = saveProducts
+        self.localProductsUseCase = localProducts
     }
     
 }
@@ -37,22 +40,25 @@ extension ProductListInteractor: ProductListBusinessLogic {
         getReachbilityUseCase.networkIsReachable { [weak self] (reachable) in
             if reachable {
                 self?.getProductsUseCase.get { [weak self] in
-                    let response = ProductsList.GetProducts.Response(result: $0)
+                    let response = ProductsList.GetProducts.Response(remoteResult: $0)
                     self?.presenter?.presentGetProducts(response: response)
                 }
+            }
+            else {
+                self?.localProductsUseCase.get(completion: { [weak self] in
+                    let response = ProductsList.GetProducts.Response(localResult: $0)
+                    self?.presenter?.presentGetProducts(response: response)
+                })
             }
         }
     }
     
     func saveProducts(request: ProductsList.SaveProducts.Request) {
         let saveModel = SaveProductsModel(products: request.items)
-        saveProducts.save(saveProductsModel: saveModel) {
-            switch $0 {
-            case .success:
-                print("success saving")
-            case .failure:
-                print("error saving")
-            }
+        
+        saveProductsUseCase.save(saveProductsModel: saveModel) { [weak self] in
+            let response = ProductsList.SaveProducts.Response(result: $0)
+            self?.presenter?.presentSaveProducts(response: response)
         }
     }
     

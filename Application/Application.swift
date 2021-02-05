@@ -18,13 +18,16 @@ public final class Main: Application {
     let getProducts: GetProducts
     let getReachability: GetReachbility
     let saveProducts: SaveProducts
+    let localProducts: LocalProducts
     private var viewController: ProductListViewController?
     
     public init(getProducts: GetProducts,
                 saveProducts: SaveProducts,
+                localProducts: LocalProducts,
                 getReachability: GetReachbility) {
         self.getProducts = getProducts
         self.saveProducts = saveProducts
+        self.localProducts = localProducts
         self.getReachability = getReachability
     }
     
@@ -43,7 +46,8 @@ public final class Main: Application {
         let presenter = ProductListPresenter()
         let interactor = ProductListInteractor(getProductsUseCase: getProducts,
                                                getReachbilityUseCase: getReachability,
-                                               saveProducts: saveProducts)
+                                               saveProducts: saveProducts,
+                                               localProducts: localProducts)
         let view = ProductListView()
         viewController = ProductListViewController(interactor: interactor,
                                                        viewLogic: view,

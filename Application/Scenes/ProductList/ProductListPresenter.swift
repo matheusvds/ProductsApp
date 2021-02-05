@@ -5,7 +5,7 @@ import SharedModels
 protocol ProductListPresentationLogic {
     
     func presentGetProducts(response: ProductsList.GetProducts.Response)
-    
+    func presentSaveProducts(response: ProductsList.SaveProducts.Response)
 }
 
 final class ProductListPresenter {
@@ -18,7 +18,7 @@ final class ProductListPresenter {
 extension ProductListPresenter: ProductListPresentationLogic {
     
     func presentGetProducts(response: ProductsList.GetProducts.Response) {
-        switch response.result {
+        switch response.remoteResult {
         case .success(let productList):
 
             let  viewModel = formatViewModel(from: productList)
@@ -27,9 +27,34 @@ extension ProductListPresenter: ProductListPresentationLogic {
             
             let viewModel = ProductsList.GetProducts.ViewModel(items: [], errorMessage: error.errorMessage)
             displayLogic?.displayGetProducts(viewModel: viewModel)
-            
+        
+        case .none: break
+        }
+        
+        switch response.localResult {
+        case .success(let products):
+            let orderedProducts = products.sorted(by: { $0.name < $1.name })
+            let viewModel = GetProductsViewModel(items: orderedProducts, errorMessage: nil)
+            displayLogic?.displayGetProducts(viewModel: viewModel)
+        case .failure(let error):
+            let viewModel = ProductsList.GetProducts.ViewModel(items: [], errorMessage: error.errorMessage)
+            displayLogic?.displayGetProducts(viewModel: viewModel)
+        case .none: break
         }
     }
+    
+    func presentSaveProducts(response: ProductsList.SaveProducts.Response) {
+        switch response.result {
+        case .success:
+            let viewModel = ProductsList.SaveProducts.ViewModel(message: "success saving")
+            displayLogic?.displaySaveProducts(viewModel: viewModel)
+        case .failure(let error):
+            let viewModel = ProductsList.SaveProducts.ViewModel(message: "error saving: \(error)")
+            displayLogic?.displaySaveProducts(viewModel: viewModel)
+        }
+
+    }
+    
     
     private func formatViewModel(from productList: ProductList) -> ProductsList.GetProducts.ViewModel {
         return ProductsList.GetProducts.ViewModel(
