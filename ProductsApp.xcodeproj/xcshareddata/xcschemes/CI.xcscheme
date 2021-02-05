@@ -160,20 +160,6 @@
                ReferencedContainer = "container:ProductsApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C69CC19125CDD9A2000F9249"
-               BuildableName = "UseCasesIntegrationTests.xctest"
-               BlueprintName = "UseCasesIntegrationTests"
-               ReferencedContainer = "container:ProductsApp.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -269,17 +255,6 @@
                BlueprintIdentifier = "C656850A25CB4D080028F3B5"
                BuildableName = "UITests.xctest"
                BlueprintName = "UITests"
-               ReferencedContainer = "container:ProductsApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C69CC19125CDD9A2000F9249"
-               BuildableName = "UseCasesIntegrationTests.xctest"
-               BlueprintName = "UseCasesIntegrationTests"
                ReferencedContainer = "container:ProductsApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
