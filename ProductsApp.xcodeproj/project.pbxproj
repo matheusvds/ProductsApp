@@ -61,6 +61,8 @@
 		C69CC14225CDB4F8000F9249 /* LocalGetProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC14125CDB4F8000F9249 /* LocalGetProducts.swift */; };
 		C69CC14E25CDB584000F9249 /* StorageGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC14D25CDB584000F9249 /* StorageGet.swift */; };
 		C69CC15525CDB5BB000F9249 /* StorageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC15425CDB5BB000F9249 /* StorageError.swift */; };
+		C69CC17025CDC79A000F9249 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC16F25CDC79A000F9249 /* Product.swift */; };
+		C69CC18225CDC822000F9249 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC16F25CDC79A000F9249 /* Product.swift */; };
 		C6BDC0A725C47FAB002F1FA3 /* getProductsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0A625C47FAB002F1FA3 /* getProductsJSON.swift */; };
 		C6BDC0AF25C480D9002F1FA3 /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0AE25C480D9002F1FA3 /* TestExtensions.swift */; };
 		C6BDC0B325C48257002F1FA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6BDC0B225C48257002F1FA3 /* Model.swift */; };
@@ -324,6 +326,7 @@
 		C69CC14125CDB4F8000F9249 /* LocalGetProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalGetProducts.swift; sourceTree = "<group>"; };
 		C69CC14D25CDB584000F9249 /* StorageGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageGet.swift; sourceTree = "<group>"; };
 		C69CC15425CDB5BB000F9249 /* StorageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageError.swift; sourceTree = "<group>"; };
+		C69CC16F25CDC79A000F9249 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C6BDC0A625C47FAB002F1FA3 /* getProductsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getProductsJSON.swift; sourceTree = "<group>"; };
 		C6BDC0AE25C480D9002F1FA3 /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
 		C6BDC0B225C48257002F1FA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -611,6 +614,31 @@
 			path = SharedModels;
 			sourceTree = "<group>";
 		};
+		C69CC18025CDC812000F9249 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		C69CC18125CDC81A000F9249 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C69CC16F25CDC79A000F9249 /* Product.swift */,
+				C69CC00225CCA7B8000F9249 /* CoreDataAdapter.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C69CC18825CDC826000F9249 /* NWPathMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				C69CC07525CD9288000F9249 /* NWPathMonitorAdapter.swift */,
+			);
+			path = NWPathMonitor;
+			sourceTree = "<group>";
+		};
 		C6B3F18125C359CE00D17EDB = {
 			isa = PBXGroup;
 			children = (
@@ -659,10 +687,10 @@
 		C6BDC14E25C48BF2002F1FA3 /* Infra */ = {
 			isa = PBXGroup;
 			children = (
+				C69CC18825CDC826000F9249 /* NWPathMonitor */,
+				C69CC18125CDC81A000F9249 /* CoreData */,
+				C69CC18025CDC812000F9249 /* URLSession */,
 				C6BDC15025C48BF2002F1FA3 /* Info.plist */,
-				C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */,
-				C69CC00225CCA7B8000F9249 /* CoreDataAdapter.swift */,
-				C69CC07525CD9288000F9249 /* NWPathMonitorAdapter.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -1296,6 +1324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C69CC10425CDA9A2000F9249 /* CoreDataAdapter.swift in Sources */,
+				C69CC18225CDC822000F9249 /* Product.swift in Sources */,
 				C656849D25CB16470028F3B5 /* AppDelegate.swift in Sources */,
 				C69CC12A25CDAF10000F9249 /* Products.xcdatamodeld in Sources */,
 			);
@@ -1337,6 +1366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C69CC07625CD9288000F9249 /* NWPathMonitorAdapter.swift in Sources */,
+				C69CC17025CDC79A000F9249 /* Product.swift in Sources */,
 				C69CC00325CCA7B8000F9249 /* CoreDataAdapter.swift in Sources */,
 				C6BDC17225C48C20002F1FA3 /* URLSessionAdapter.swift in Sources */,
 			);
