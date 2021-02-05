@@ -284,7 +284,7 @@
 
 /* Begin PBXFileReference section */
 		C656842725C9D5520028F3B5 /* Application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C656842A25C9D5520028F3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C656842A25C9D5520028F3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C656842F25C9D5530028F3B5 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C656843425C9D5530028F3B5 /* ApplicationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTests.swift; sourceTree = "<group>"; };
 		C656843625C9D5530028F3B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -477,10 +477,11 @@
 		C656842825C9D5520028F3B5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				C656849025CB10BD0028F3B5 /* Application.swift */,
 				C69CBF9325CB8129000F9249 /* Resources */,
 				C65684E725CB29DE0028F3B5 /* Helpers */,
 				C656845B25C9D62E0028F3B5 /* Scenes */,
-				C656849025CB10BD0028F3B5 /* Application.swift */,
+				C656842A25C9D5520028F3B5 /* Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -602,7 +603,6 @@
 		C69CBF9325CB8129000F9249 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C656842A25C9D5520028F3B5 /* Info.plist */,
 				C69CBF9425CB8137000F9249 /* Media.xcassets */,
 			);
 			path = Resources;
@@ -1806,7 +1806,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1827,7 +1827,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mithdev.UITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
