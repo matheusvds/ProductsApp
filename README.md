@@ -1,4 +1,4 @@
-
+[![Build Status](https://app.bitrise.io/app/31f1166a126714b1/status.svg?token=GO7FSE1ZEZjQWeqhHq9_zA)](https://app.bitrise.io/app/31f1166a126714b1)
 
 # ProductsApp
 An iOS application written in Swift using the Clean Architecture design that consumes a REST API.
