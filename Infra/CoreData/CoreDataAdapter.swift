@@ -7,7 +7,6 @@ public class PersistentContainer: NSPersistentContainer { }
 
 final public class CoreDataAdapter: StorageSave, StorageGet {
     
-    
     let container: PersistentContainer
     
     public init(container: PersistentContainer) {
@@ -46,31 +45,14 @@ final public class CoreDataAdapter: StorageSave, StorageGet {
         }
     }
     
-    
     public func save(items: Set<ProductItemModel>) -> Result<Void, StorageError> {
         var saveError: Error?
         items.forEach { item in
-            let request = Product.fetchRequest()
-            request.predicate = NSPredicate(format: "name == %@", item.name)
             do {
-                if let product = try container.viewContext.fetch(request).first as? Product {
-                    product.setValue(item.name, forKey: "name")
-                    product.setValue(item.brand, forKey: "brand")
-                    product.setValue(item.image, forKey: "image")
-                    product.setValue(item.currentPrice, forKey: "currentPrice")
-                    product.setValue(item.originalPrice, forKey: "originalPrice")
-                    product.setValue(item.originalPriceIsHidden, forKey: "originalPriceIsHidden")
+                if let product = item.existent(in: container.viewContext) {
+                    product.set(with: item)
                 }
-                else {
-                    let product = Product(context: container.viewContext)
-                    product.setValue(item.name, forKey: "name")
-                    product.setValue(item.brand, forKey: "brand")
-                    product.setValue(item.image, forKey: "image")
-                    product.setValue(item.currentPrice, forKey: "currentPrice")
-                    product.setValue(item.originalPrice, forKey: "originalPrice")
-                    product.setValue(item.originalPriceIsHidden, forKey: "originalPriceIsHidden")
-                    
-                }
+                else { create(item: item) }
                 
                 try container.viewContext.save()
             } catch {
@@ -85,4 +67,50 @@ final public class CoreDataAdapter: StorageSave, StorageGet {
         return .success(())
     }
     
+}
+
+// MARK: - Helpers
+fileprivate extension CoreDataAdapter {
+    
+    private func create(item: ProductItemModel) {
+        let product = Product(context: container.viewContext)
+        product.set(with: item)
+    }
+    
+}
+
+fileprivate extension ProductItemModel {
+    
+    func existent(in context: NSManagedObjectContext) -> Product? {
+        let request = Product.fetchRequest()
+        request.predicate = Product.createPredicate(for: self.name, brand: self.brand)
+        return try? context.fetch(request).first as? Product
+    }
+    
+}
+
+fileprivate extension Product {
+    
+    class func createPredicate(for name: String, brand: String) -> NSCompoundPredicate {
+        return NSCompoundPredicate(andPredicateWithSubpredicates: [
+            NSPredicate(format: "name = %@", name),
+            NSPredicate(format: "brand = %@", brand)
+        ])
+    }
+    
+    func set(with item: ProductItemModel) {
+        setValue(item.name, forKey: "name")
+        setValue(item.brand, forKey: "brand")
+        setValue(item.image, forKey: "image")
+        setValue(item.currentPrice, forKey: "currentPrice")
+        setValue(item.originalPrice, forKey: "originalPrice")
+        setValue(item.originalPriceIsHidden, forKey: "originalPriceIsHidden")
+    }
+    
+}
+
+fileprivate extension Optional where Wrapped == Product {
+    func set(with item: ProductItemModel) {
+        self?.set(with: item)
+    }
 }
