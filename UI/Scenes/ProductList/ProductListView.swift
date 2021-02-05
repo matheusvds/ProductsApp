@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SharedModels
 
 public protocol ProductListViewLogic {
     
@@ -7,7 +8,7 @@ public protocol ProductListViewLogic {
     func set(items: [ProductCellModel])
 }
 
-public typealias ProductListViewDelegate = ImageLoadingDelegate & SearchDelegate
+public typealias ProductListViewDelegate = ImageLoadingDelegate & SearchDelegate & ItemListAccessDelegate
 
 public protocol ImageLoadingDelegate: class {
     func set(imageView: UIImageView, with url: String)
@@ -15,6 +16,10 @@ public protocol ImageLoadingDelegate: class {
 
 public protocol SearchDelegate: class {
     func setupInNavigation(controller: UISearchController)
+}
+
+public protocol ItemListAccessDelegate: class {
+    func get(item: ProductCellModel)
 }
 
 public final class ProductListView: UIView {
@@ -37,7 +42,7 @@ public final class ProductListView: UIView {
         controller.searchBar.autocapitalizationType = .none
         controller.searchResultsUpdater = self
         controller.obscuresBackgroundDuringPresentation = false
-        controller.searchBar.placeholder = "we searched for kittens, wanna try?"
+        controller.searchBar.placeholder = "search for products"
         return controller
     }()
     
@@ -117,7 +122,7 @@ extension ProductListView: UITableViewDataSource, UITableViewDelegate {
         let item = items[indexPath.row]
         cell.setup(with: item)
         delegate?.set(imageView: cell.productImage, with: item.image)
-        
+        delegate?.get(item: item)
         return cell
     }
 

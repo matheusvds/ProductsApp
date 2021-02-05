@@ -1,6 +1,8 @@
 import Foundation
 import UIKit
 import UI
+import CoreData
+import SharedModels
 
 protocol ProductListDisplayLogic: class {
     
@@ -13,6 +15,7 @@ final class ProductListViewController: UIViewController {
     let interactor: ProductListBusinessLogic
     private let viewLogic: ProductListViewLogic
     private let imageLoader: ImageLoader
+    private var items = Set<ProductItemModel>()
     
     init(interactor: ProductListBusinessLogic,
          viewLogic: ProductListViewLogic,
@@ -41,6 +44,10 @@ final class ProductListViewController: UIViewController {
         setupController()
     }
     
+    func saveContext() {
+        let request = ProductsList.SaveProducts.Request(items: items)
+        interactor.saveProducts(request: request)
+    }
 }
 
 // MARK: - Helpers
@@ -55,6 +62,7 @@ extension ProductListViewController {
         setupTitle()
         definesPresentationContext = true
     }
+    
 }
 
 // MARK: - ProductListDisplayLogic
@@ -62,12 +70,23 @@ extension ProductListViewController: ProductListDisplayLogic {
     
     func displayGetProducts(viewModel: ProductsList.GetProducts.ViewModel) {
         viewLogic.set(items: viewModel.items)
+//        do {
+//            let request = NSFetchRequest<Product>(entityName: "Product")
+//            let products = try context.fetch(request)
+//            products.forEach { print($0.name!) }
+//        } catch {
+//            print("\(error)")
+//        }
     }
-    
+
 }
 
 // MARK: - ProductListViewDelegate
 extension ProductListViewController: ProductListViewDelegate {
+    
+    func get(item: ProductCellModel) {
+        items.insert(item as! ProductItemModel)
+    }
     
     func setupInNavigation(controller: UISearchController) {
         navigationItem.searchController = controller

@@ -1,5 +1,6 @@
 import Foundation
 import Domain
+import SharedModels
 
 protocol ProductListPresentationLogic {
     
@@ -32,16 +33,18 @@ extension ProductListPresenter: ProductListPresentationLogic {
     
     private func formatViewModel(from productList: ProductList) -> ProductsList.GetProducts.ViewModel {
         return ProductsList.GetProducts.ViewModel(
-            items: productList.products.map {
-                        GetProductsViewModel.Item(
-                            name: $0.name,
-                            image: $0.image.url,
-                            brand: $0.brand,
-                            currentPrice: format(price: $0.currentPrice, with: $0.currency),
-                            originalPrice: format(price: $0.originalPrice, with: $0.currency).strikeThrough(),
-                            originalPriceIsHidden: $0.currentPrice == $0.originalPrice
-                        )
-            }, errorMessage: nil
+            items: productList.products
+                .map {
+                    ProductItemModel(
+                        name: $0.name,
+                        image: $0.image.url,
+                        brand: $0.brand,
+                        currentPrice: format(price: $0.currentPrice, with: $0.currency),
+                        originalPrice: format(price: $0.originalPrice, with: $0.currency),
+                        originalPriceIsHidden: $0.currentPrice == $0.originalPrice
+                    )
+                }.sorted(by: { $0.name < $1.name }),
+            errorMessage: nil
         )
         
     }

@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import SharedModels
 
 class ProductCell: UITableViewCell, ReuseIdentifiable {
         
@@ -51,7 +52,7 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
         brand.text = model.brand
         productName.text = model.name
         currentPrice.text = model.currentPrice
-        originalPrice.attributedText = model.originalPrice
+        originalPrice.attributedText = model.originalPrice.strikeThrough()
         originalPrice.isHidden = model.originalPriceIsHidden
     }
         

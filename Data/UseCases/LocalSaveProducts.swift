@@ -1,20 +1,17 @@
 import Foundation
 import Domain
+import SharedModels
 
-final class LocalSaveProducts: SaveProducts {
-    
+final public class LocalSaveProducts: SaveProducts {
+
     private let storage: StorageSave
     
     public init(storage: StorageSave) {
         self.storage = storage
     }
     
-    func save(products: Products, completion: @escaping (Result<Void, DomainError>) -> Void) {
-        guard let data = try? JSONEncoder().encode(products) else {
-            return completion(.failure(.unexpected))
-        }
-        
-        let result = storage.save(entity: data)
+    public func save(saveProductsModel: SaveProductsModel, completion: @escaping (Result<Void, DomainError>) -> Void) {
+        let result = storage.save(items: saveProductsModel.products)
         
         switch result {
         case .success:

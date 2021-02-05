@@ -12,9 +12,32 @@ public struct Product {
     public let currency: String
     public let image: Image
     
+
+    
+    public init(
+        identifier: Int,
+        name: String,
+        brand: String,
+        originalPrice: Double,
+        currentPrice: Double,
+        currency: String,
+        image: Image
+    ) {
+        self.identifier = identifier
+        self.name = name
+        self.brand = brand
+        self.originalPrice = originalPrice
+        self.currentPrice = currentPrice
+        self.currency = currency
+        self.image = image
+    }
+    
     public struct Image {
-       public let id: Int
        public let url: String
+        
+        public init(url: String) {
+            self.url = url
+        }
     }
     
 }

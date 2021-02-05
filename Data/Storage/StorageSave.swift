@@ -1,8 +1,15 @@
 import Foundation
 import Domain
+import SharedModels
 
 public protocol StorageSave {
     
-    func save(entity: Data) -> Result<Void, DomainError>
+    func save(items: Set<ProductItemModel>) -> Result<Void, StorageError>
+    
+}
+
+public enum StorageError: Error {
+    
+    case unexpected
     
 }

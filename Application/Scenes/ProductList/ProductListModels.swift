@@ -1,6 +1,7 @@
 import Foundation
 import Domain
 import UI
+import SharedModels
 
 typealias GetProductsViewModel = ProductsList.GetProducts.ViewModel
 
@@ -13,23 +14,32 @@ enum ProductsList {
         }
         
         struct Response {
+            
             let result: Result<Domain.ProductList, DomainError>
+            
         }
         
         struct ViewModel {
             
-            let items: [Item]
+            let items: [ProductItemModel]
             let errorMessage: String?
             
-            struct Item: ProductCellModel {
-                
-                let name: String
-                let image: String
-                let brand: String
-                let currentPrice: String
-                let originalPrice: NSAttributedString
-                let originalPriceIsHidden: Bool
-            }
+        }
+    }
+    
+    enum SaveProducts {
+        
+        struct Request {
+            let items: Set<ProductItemModel>
+        }
+        
+        struct Response {
+            
+            
+        }
+        
+        struct ViewModel {
+
         }
     }
     

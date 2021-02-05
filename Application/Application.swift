@@ -2,27 +2,36 @@ import Foundation
 import UIKit
 import Domain
 import UI
+import CoreData
 
 public protocol Application {
     
     func start()
-    
+    func saveContext()
 }
+class PersistentContainer: NSPersistentContainer { }
 
 public final class Main: Application {
     
     public var window: UIWindow?
     
     let getProducts: GetProducts
+    let getReachability: GetReachbility
+    let saveProducts: SaveProducts
+    private var viewController: ProductListViewController?
     
-    public init(getProducts: GetProducts) {
+    public init(getProducts: GetProducts,
+                saveProducts: SaveProducts,
+                getReachability: GetReachbility) {
         self.getProducts = getProducts
+        self.saveProducts = saveProducts
+        self.getReachability = getReachability
     }
     
     public func start() {
         let vc = makeProductListViewController()
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let navigation = UINavigationController(rootViewController: vc)
+        let navigation = UINavigationController(rootViewController: vc!)
         window.rootViewController = navigation
         self.window = window
         
@@ -30,17 +39,26 @@ public final class Main: Application {
     }
     
     
-    func makeProductListViewController() -> ProductListViewController {
+    func makeProductListViewController() -> ProductListViewController? {
         let presenter = ProductListPresenter()
-        let interactor = ProductListInteractor(getProductsUseCase: getProducts)
+        let interactor = ProductListInteractor(getProductsUseCase: getProducts,
+                                               getReachbilityUseCase: getReachability,
+                                               saveProducts: saveProducts)
         let view = ProductListView()
-        let viewController = ProductListViewController(interactor: interactor, viewLogic: view, imageLoader: UIImageLoader())
+        viewController = ProductListViewController(interactor: interactor,
+                                                       viewLogic: view,
+                                                       imageLoader: UIImageLoader())
         
         view.delegate = viewController
         interactor.presenter = presenter
         presenter.displayLogic = viewController
         
         return viewController
+    }
+    
+    public func saveContext() {
+        print("saving context")
+        viewController?.saveContext()
     }
     
 }
