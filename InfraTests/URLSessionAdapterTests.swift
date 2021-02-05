@@ -5,13 +5,6 @@ import XCTest
 
 class URLSessionAdapterTests: XCTestCase {
 
-    func test_send_should_have_request_with_valid_url() {
-        let dummyRequest = makeDummyRequest()
-        testRequest(for: dummyRequest) { request in
-            XCTAssertEqual(dummyRequest.url, request.url)
-        }
-    }
-
     func test_send_should_complete_with_error_when_request_completes_with_error() {
         expect(result: .failure(.noConnection), when: (data: nil, response: nil, error: makeError()))
     }
