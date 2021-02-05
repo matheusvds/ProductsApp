@@ -5,13 +5,13 @@ import UI
 
 protocol ImageLoader {
     
-    func set(imageView: UIImageView, with url: String, completion: @escaping (UIImage?) -> Void)
+    func set(imageView: UIImageView, with url: String)
     
 }
 
 class UIImageLoader: ImageLoader {
     
-    func set(imageView: UIImageView, with url: String, completion: @escaping (UIImage?) -> Void) {
+    func set(imageView: UIImageView, with url: String) {
         guard let url = URL(string: url) else {
             debugPrint("Malformed string")
             return
@@ -23,7 +23,6 @@ class UIImageLoader: ImageLoader {
                 imageView.image = UIImage(named: "notFound", in: Bundle(for: type(of: self)), with: .none)
                 imageView.contentMode = .center
             }
-            completion(image)
         }
     }
     

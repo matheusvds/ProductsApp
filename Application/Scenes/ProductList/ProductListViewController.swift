@@ -91,7 +91,7 @@ extension ProductListViewController: ProductListViewDelegate {
     }
     
     func set(imageView: UIImageView, with url: String) {
-        imageLoader.set(imageView: imageView, with: url, completion: { _ in })
+        imageLoader.set(imageView: imageView, with: url)
     }
     
 }
