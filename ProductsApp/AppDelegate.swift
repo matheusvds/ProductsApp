@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let httpClient = URLSessionAdapter()
         let database = CoreDataAdapter(container: persistentContainer)
         let remoteGetProducts = RemoteGetProducts(httpClient: httpClient)
-        let remoteReachability = RemoteGetReachability(network: NetworkAdapter())
+        let remoteReachability = RemoteGetReachability(network: NWPathMonitorAdapter())
         let localSaveProducts = LocalSaveProducts(storage: database)
         let localGetProcuts = LocalGetProducts(storage: database)
         

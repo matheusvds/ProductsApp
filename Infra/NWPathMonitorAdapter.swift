@@ -2,7 +2,7 @@ import Foundation
 import Network
 import Data
 
-public class NetworkAdapter: Network {
+public class NWPathMonitorAdapter: Network {
     
     let monitor: NWPathMonitor
     

@@ -47,7 +47,7 @@
 		C69CC05D25CD9110000F9249 /* GetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC05C25CD9110000F9249 /* GetReachability.swift */; };
 		C69CC06525CD9166000F9249 /* RemoteGetReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC06425CD9166000F9249 /* RemoteGetReachability.swift */; };
 		C69CC06E25CD91B1000F9249 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC06D25CD91B1000F9249 /* Network.swift */; };
-		C69CC07625CD9288000F9249 /* NetworkAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC07525CD9288000F9249 /* NetworkAdapter.swift */; };
+		C69CC07625CD9288000F9249 /* NWPathMonitorAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC07525CD9288000F9249 /* NWPathMonitorAdapter.swift */; };
 		C69CC09925CD9EA8000F9249 /* ProductCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69CC09825CD9EA8000F9249 /* ProductCellModel.swift */; };
 		C69CC0A825CD9F15000F9249 /* SharedModels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C69CC08225CD9E6E000F9249 /* SharedModels.framework */; };
 		C69CC0A925CD9F15000F9249 /* SharedModels.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C69CC08225CD9E6E000F9249 /* SharedModels.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -316,7 +316,7 @@
 		C69CC05C25CD9110000F9249 /* GetReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetReachability.swift; sourceTree = "<group>"; };
 		C69CC06425CD9166000F9249 /* RemoteGetReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteGetReachability.swift; sourceTree = "<group>"; };
 		C69CC06D25CD91B1000F9249 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		C69CC07525CD9288000F9249 /* NetworkAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAdapter.swift; sourceTree = "<group>"; };
+		C69CC07525CD9288000F9249 /* NWPathMonitorAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NWPathMonitorAdapter.swift; sourceTree = "<group>"; };
 		C69CC08225CD9E6E000F9249 /* SharedModels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SharedModels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69CC08525CD9E6E000F9249 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C69CC09825CD9EA8000F9249 /* ProductCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellModel.swift; sourceTree = "<group>"; };
@@ -662,7 +662,7 @@
 				C6BDC15025C48BF2002F1FA3 /* Info.plist */,
 				C6BDC17125C48C20002F1FA3 /* URLSessionAdapter.swift */,
 				C69CC00225CCA7B8000F9249 /* CoreDataAdapter.swift */,
-				C69CC07525CD9288000F9249 /* NetworkAdapter.swift */,
+				C69CC07525CD9288000F9249 /* NWPathMonitorAdapter.swift */,
 			);
 			path = Infra;
 			sourceTree = "<group>";
@@ -1336,7 +1336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C69CC07625CD9288000F9249 /* NetworkAdapter.swift in Sources */,
+				C69CC07625CD9288000F9249 /* NWPathMonitorAdapter.swift in Sources */,
 				C69CC00325CCA7B8000F9249 /* CoreDataAdapter.swift in Sources */,
 				C6BDC17225C48C20002F1FA3 /* URLSessionAdapter.swift in Sources */,
 			);
