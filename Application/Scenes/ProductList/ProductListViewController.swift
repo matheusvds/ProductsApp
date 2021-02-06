@@ -8,7 +8,7 @@ protocol ProductListDisplayLogic: class {
     
     func displayGetProducts(viewModel: ProductsList.GetProducts.ViewModel)
     func displaySaveProducts(viewModel: ProductsList.SaveProducts.ViewModel)
-    
+
 }
 
 final class ProductListViewController: UIViewController {
@@ -81,6 +81,10 @@ extension ProductListViewController: ProductListDisplayLogic {
 
 // MARK: - ProductListViewDelegate
 extension ProductListViewController: ProductListViewDelegate {
+    
+    func reloadData() {
+        interactor.getProducts(request: ProductsList.GetProducts.Request())
+    }
     
     func get(item: ProductCellModel) {
         items.insert(item as! ProductItemModel)

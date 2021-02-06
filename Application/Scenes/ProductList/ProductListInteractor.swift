@@ -5,13 +5,16 @@ protocol ProductListBusinessLogic {
     
     func getProducts(request: ProductsList.GetProducts.Request)
     func saveProducts(request: ProductsList.SaveProducts.Request)
+
 }
 
 protocol ProductListDataStore {
-    
+
 }
 
 final class ProductListInteractor: ProductListDataStore {
+    
+    var isReachable: Bool?
     
     var presenter: ProductListPresentationLogic?
     
@@ -61,5 +64,5 @@ extension ProductListInteractor: ProductListBusinessLogic {
             self?.presenter?.presentSaveProducts(response: response)
         }
     }
-    
+
 }

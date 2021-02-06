@@ -4,19 +4,19 @@ import Data
 
 public class NWPathMonitorAdapter: Network {
     
-    let monitor: NWPathMonitor
+    private let monitor: NWPathMonitor
+    private var isReachable: Bool = true
     
     public init() {
         monitor = NWPathMonitor()
-    }
-    
-    public func networkIsReachable(completion: @escaping (Bool) -> Void) {
         monitor.pathUpdateHandler = { path in
-            if path.status == .satisfied {
-                return completion(true)
-            }
-            return completion(false)
+            self.isReachable = path.status == .satisfied
         }
         monitor.start(queue: DispatchQueue(label: "Monitor"))
     }
+    
+    public func networkIsReachable(completion: @escaping (Bool) -> Void) {
+        completion(isReachable)
+    }
+    
 }

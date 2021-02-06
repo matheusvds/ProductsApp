@@ -8,7 +8,7 @@ public protocol ProductListViewLogic {
     func set(items: [ProductCellModel])
 }
 
-public typealias ProductListViewDelegate = ImageLoadingDelegate & SearchDelegate & ItemListAccessDelegate
+public typealias ProductListViewDelegate = ImageLoadingDelegate & SearchDelegate & ItemListAccessDelegate & ReloadDataDelegate
 
 public protocol ImageLoadingDelegate: class {
     func set(imageView: UIImageView, with url: String)
@@ -16,6 +16,10 @@ public protocol ImageLoadingDelegate: class {
 
 public protocol SearchDelegate: class {
     func setupInNavigation(controller: UISearchController)
+}
+
+public protocol ReloadDataDelegate: class {
+    func reloadData()
 }
 
 public protocol ItemListAccessDelegate: class {
@@ -30,10 +34,17 @@ public final class ProductListView: UIView {
         }
     }
     
-    private lazy var tableView: UITableView = {
+    private lazy var refreshControl: UIRefreshControl = {
+       let view = UIRefreshControl()
+        view.addTarget(self, action: #selector(handle(refreshControl:)), for: .valueChanged)
+        return view
+    }()
+    
+    private lazy var tableView: UITableView = { [weak self] in
         let tableView = ProductListTableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.refreshControl = self?.refreshControl
         return tableView
     }()
     
@@ -62,6 +73,12 @@ public final class ProductListView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func handle(refreshControl: UIRefreshControl) {
+        DispatchQueue.main.async { [weak self] in
+            self?.delegate?.reloadData()
+        }
+    }
+    
 }
 
 // MARK: - ProductListViewLogic
@@ -73,7 +90,10 @@ extension ProductListView: ProductListViewLogic {
     
     public func set(items: [ProductCellModel]) {
         self.fetchedItems = items
-        DispatchQueue.main.async(execute: tableView.reloadData)
+        DispatchQueue.main.async { [weak self] in
+            self?.refreshControl.endRefreshing()
+            self?.tableView.reloadData()
+        }
     }
     
 }
