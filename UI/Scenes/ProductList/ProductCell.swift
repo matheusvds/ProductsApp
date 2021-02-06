@@ -12,30 +12,34 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
         return view
     }()
     
-    private lazy var productName: UITextField = {
-        let view = UITextField()
+    private lazy var productName: UILabel = {
+        let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 16, weight: .bold)
         return view
     }()
     
-    private lazy var currentPrice: UITextField = {
-        let view = UITextField()
+    private lazy var currentPrice: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        view.textColor = .label
         return view
     }()
     
-    private lazy var originalPrice: UITextField = {
-        let view = UITextField()
+    private lazy var originalPrice: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        view.textColor = .darkGray
         return view
     }()
     
-    private lazy var brand: UITextField = {
-        let view = UITextField()
+    private lazy var brand: UILabel = {
+        let view = UILabel()
         view.font = UIFont.systemFont(ofSize: 11, weight: .medium)
         return view
     }()
     
     private lazy var stackView: UIStackView = { [weak self] in
-        let subviews = [self?.currentPrice, self?.originalPrice].compactMap { $0 }
+        let subviews = [self?.originalPrice, self?.currentPrice].compactMap { $0 }
         let view = UIStackView(arrangedSubviews: subviews)
         view.distribution = .equalSpacing
         view.axis = .vertical
@@ -54,10 +58,21 @@ class ProductCell: UITableViewCell, ReuseIdentifiable {
         currentPrice.text = model.currentPrice
         originalPrice.attributedText = model.originalPrice.strikeThrough()
         originalPrice.isHidden = model.originalPriceIsHidden
+        setupLabel(isPromotion: !model.originalPriceIsHidden)
     }
         
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupLabel(isPromotion: Bool) {
+        if isPromotion {
+            currentPrice.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+            currentPrice.textColor = .red
+            return
+        }
+        currentPrice.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        currentPrice.textColor = .label
     }
     
 }
